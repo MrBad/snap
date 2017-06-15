@@ -37,13 +37,16 @@ int genFileName(char *file_name, int file_size)
 		if(SNAP_PATH[0] == '~') {
 			if(SNAP_PATH[1] != '/') {
 				fprintf(stderr, "invalid SNAP_PATH\n");
+				return -1;
 			}
 			home = getenv("HOME");
 			len = snprintf(file_name, file_size, "%s%s/%s_%d.png", 
 					home, &(SNAP_PATH[1]), base_name, i);
-		} else {
+		} 
+		else {
 			len = snprintf(file_name, file_size, "%s/%s_%d.png", SNAP_PATH, base_name, i);
 		}
+
 		i++;
 	} while(access(file_name, F_OK) == 0);
 
