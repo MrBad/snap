@@ -1,6 +1,14 @@
 //
 //	A image magik import wrapper
 //		to be used with dwm - on print_screen key press -> snap 
+//	
+//		changes in dwm config.h:
+//			define key:
+//				#define Print 0xff61
+//			define print command:
+//				static const char *printcmd[] = {"/home/develop/snap/snap", NULL};
+//			add it to  static Key keys[] = {
+//				{ 0, Print, spawn, {.v = printcmd} },
 //
 #include <stdio.h>
 #include <string.h>
